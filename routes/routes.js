@@ -1,57 +1,15 @@
-const express = require("express");
-const logger = require("morgan");
-const mongoose = require("mongoose");
-
-// Scrapers
-const axios = require("axios");
-const cheerio = require("cheerio");
-
-// Require all models
-const db = require("./models");
-
-// Server & Port
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
-const PORT = 3000;
-
-// Initialize Express
-const app = express();
-
-// Handlebars
-const exhbars = require("express-handlebars");
-
-app.engine("handlebars", exhbars({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
-
-// Middleware
-
-// Use morgan logger for logging requests
-app.use(logger("dev"));
-// Parse request body as JSON
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-// Make public a static folder
-app.use(express.static("public"));
-
-// Connect to the Mongo DB
-mongoose.connect(MONGODB_URI);
-
-// Routes
-var routes = require("./routes/routes.js");
-
-app.use(routes);
-
 // Dependencies
 
-// const express = require("express");
-// const app = express();
-// const router = express.Router();
+const express = require("express");
+const app = express();
+const router = express.Router();
 
 // Routes
 
 // Get Index
 
 app.get("/", function(req, res) {
-    res.render("index");
+    res.render("index.handlebars");
 })
 
 // A GET route for scraping the echoJS website
@@ -141,9 +99,4 @@ app.get("/scrape", function(req, res) {
       });
   });
 
-// module.exports = router;
-
-// Start the server
-app.listen(PORT, function() {
-  console.log("App running on port " + PORT + "!");
-});
+module.exports = router;
