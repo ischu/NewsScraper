@@ -15,11 +15,13 @@ const ArticleSchema = new Schema({
         type: String,
         required: true
     },
-    // comment object stores Comment id, linking to Comment model
-    comment: {
-        type: Schema.Types.ObjectId,
-        ref: "Comment"
-    }
+    // comment array storing comments on article
+    comment: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "Comment"
+        }
+    ]
 });
 
 // create mongoose model and export
