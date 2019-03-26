@@ -1,12 +1,11 @@
 // Dependencies
 
 const express = require("express");
-const app = express();
 const router = express.Router();
 
 // Routes
 
-// Get Index
+// GET Index
 
 router.get("/", function(req, res) {
     res.render("index");
