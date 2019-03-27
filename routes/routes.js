@@ -20,9 +20,8 @@ router.get("/scrape", function(req, res) {
 
       var $ = cheerio.load(response.data);
   
-      // Now, we grab every h2 within an article tag, and do the following:
+      // Grabs Article Divs
       $("div.Item-content").each(function(i, element) {
-        // Save an empty result object
         var result = {};
   
         // Adding headline, summary and link to each corresponding object param
@@ -30,7 +29,9 @@ router.get("/scrape", function(req, res) {
           .children("h3.Item-headline")
           .text();
         result.summary = $(this)
+        // showOnWide is the large screen summary version- might be worth switching this for responsiveness
           .children("p.Item-dip")
+          .children("span.u-showOnWide")
           .text();
         result.link = $(this)
           .children("a.Item-cta")
