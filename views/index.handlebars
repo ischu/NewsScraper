@@ -1,4 +1,54 @@
-<h1>News from accross the web!</h1>
-{{!-- links/buttons/dropdowns to various news sites --}}
-<h2>London Times</h2>
-{{!-- 10 Cards with Headline as heading, summary as body, and URL underneath as "link to story" --}}
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        London Times
+      </h1>
+      <h2 class="subtitle">
+        Top Stories
+      </h2>
+    </div>
+  </div>
+</section>{{!-- Tile based layout - each tile is an article --}}
+<div class="tile is-ancestor">
+    <div class="tile  is-vertical is-6">
+        <div class="tile is-parent">
+            <article class="tile is-child box is-info">
+                <h3 class="title">Headline</h3>
+                <p class="summary">Summary
+                    <br>
+                    <a class="link" href="">link</a>
+                </p>
+            </article>
+        </div>
+        <div class="tile is-parent ">
+            <article class="tile is-child box is-danger">
+                <p class="title">Headline</p>
+                <p class="subtitle">Link</p>
+                <div class="content">
+                    Summary
+                </div>
+            </article>
+        </div>
+    </div>
+    <div class="tile tile  is-vertical is-6">
+        <div class="tile is-parent">
+            <article class="tile is-child  box is-info">
+                <p class="title">Headline</p>
+                <p class="subtitle">Link</p>
+                <div class="content">
+                    Summary
+                </div>
+            </article>
+        </div>
+        <div class="tile is-parent">
+            <article class="tile is-child  box is-success">
+                <p class="title">Headline</p>
+                <p class="subtitle">Link</p>
+                <div class="content">
+                    Summary
+                </div>
+            </article>
+        </div>
+    </div>
+</div>
