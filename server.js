@@ -2,15 +2,8 @@ const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 
-// Scrapers
-const axios = require("axios");
-const cheerio = require("cheerio");
-
-// Require all models
-const db = require("./models");
-
 // Server & Port
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+// const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoNews";
 const PORT = 3000;
 
 // Initialize Express
@@ -33,7 +26,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Connect to the Mongo DB
-mongoose.connect(MONGODB_URI);
+mongoose.connect("mongodb://localhost/MongoNews", {useNewUrlParser: true});
 
 // Routes
 var routes = require("./routes/routes.js");
