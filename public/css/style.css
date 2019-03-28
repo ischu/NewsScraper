@@ -4,7 +4,20 @@
     margin-bottom: .5rem;
     font-weight: 500
 } */
-
+.box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+/* .headline{
+    flex: 1 0 auto
+}
+.summary{
+    flex: 2 0 auto
+}
+.button-row{
+    flex: 1 0 auto
+} */
 #ancestorTile {
     flex-wrap: wrap
 }

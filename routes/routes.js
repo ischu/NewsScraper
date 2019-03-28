@@ -44,10 +44,12 @@ router.get("/scrape", function(req, res) {
           .children("p.Item-dip")
           .children("span.u-showOnWide")
           .text();
-        result.link = $(this)
+        result.link = 
+          "https://www.thetimes.co.uk"+
+          $(this)
           .children("a.Item-cta")
           .attr("href")
-  
+        
         // Create new Article Obj.
         db.Article.create(result)
           .then(function(dbArticle) {
