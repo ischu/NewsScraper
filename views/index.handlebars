@@ -10,6 +10,10 @@
         </div>
     </div>
 </section>
+{{!-- "comment section" modal --}}
+{{#each articles}}
+{{>comment-modal}}
+{{/each}}
 {{!-- Tile based layout - each tile is an article --}}
 <div class="container is-widescreen">
     <div id="ancestorTile" class="tile is-ancestor">
@@ -19,7 +23,7 @@
             </article>
         </div>
         {{#each articles}}
-        {{>articles/article-tile}}
+        {{>article-tile}}
         {{/each}}
     </div>
 </div>
