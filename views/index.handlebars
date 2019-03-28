@@ -12,9 +12,14 @@
 </section>
 {{!-- Tile based layout - each tile is an article --}}
 <div class="container is-widescreen">
-    <div id="ancestorTile" class="tile is-ancestor  is-vertical">
+    <div id="ancestorTile" class="tile is-ancestor">
+        <div class="tile is-parent is-12 has-text-centered">
+            <article class="tile is-child box is-info" data-id="{{_id}}">
+                <h3 class="title">Top Stories</h3>
+            </article>
+        </div>
         {{#each articles}}
-            {{>articles/article-tile}}
+        {{>articles/article-tile}}
         {{/each}}
     </div>
 </div>

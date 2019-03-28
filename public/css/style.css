@@ -4,6 +4,7 @@
     margin-bottom: .5rem;
     font-weight: 500
 } */
-body {
-    background-color: red
+
+#ancestorTile {
+    flex-wrap: wrap
 }

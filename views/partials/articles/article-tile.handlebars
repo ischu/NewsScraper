@@ -1,9 +1,13 @@
-<div class="tile is-parent">
-    <article class="tile is-child box is-info" data-id="{{_id}}">
-        <h3 class="title">{{headline}}</h3>
-        <p class="summary">{{summary}}
-            <br>
-            <a class="link" href="{{link}}">link to full story</a>
+<div class="tile is-parent is-6">
+    <article class="tile is-child box has-background-grey-lighter" data-id="{{_id}}">
+        <h3 class="headline has-text-grey-darker is-size-4 has-text-justified has-text-weight-semibold">
+            {{headline}}
+        </h3>
+        <p class="summary has-text-justified">{{summary}}</p>
+        <p class="level">
+            <a class="link button is-link is-outlined level-left" href="{{link}}">link to full story</a>
+            <button class=" button is-danger is-outlined level-right">read comments</button>
+            <button class=" button is-primary is-outlined level-right">leave a comment</button>
         </p>
     </article>
 </div>
