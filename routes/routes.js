@@ -10,8 +10,19 @@ const db = require("../models");
 // GET Index
 
 router.get("/", function(req, res) {
-    res.render("index");
-})
+  // find all Articles
+  db.Article.find({}).limit(6)
+  .then(function(data){
+      var hbsObj = {
+        articles: data
+      };
+      console.log(hbsObj)
+      res.render("index", hbsObj);
+  })
+  .catch(function(err){
+    ers.json(err)
+  });
+});
 
 // A GET route for scraping the London Times website
 router.get("/scrape", function(req, res) {

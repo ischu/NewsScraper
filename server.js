@@ -1,6 +1,7 @@
 const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
+const fs = require("fs");
 
 // Server & Port
 // const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoNews";
@@ -10,10 +11,11 @@ const PORT = 3000;
 const app = express();
 
 // Handlebars
-const exhbars = require("express-handlebars");
-
-app.engine("handlebars", exhbars({ defaultLayout: "main" }));
+const handlebars = require("express-handlebars");
+// handlebars.registerPartial('article-tile', '{{name}}');
+app.engine("handlebars", handlebars({ defaultLayout: "main" }), handlebars({partialsDir: ['views/partials/']}));
 app.set("view engine", "handlebars");
+
 
 // Middleware
 
