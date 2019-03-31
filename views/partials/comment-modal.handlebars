@@ -1,18 +1,56 @@
-{{!-- this will be the "comment section" --}}
-{{!-- <div class="modal">
+{{!-- modal for adding comment" --}}
+<div id="newCommentModal" class="modal">
   <div class="modal-background"></div>
   <div class="modal-card">
     <header class="modal-card-head">
-      <p class="modal-card-title">Modal title</p>
-      <button class="delete" aria-label="close"></button>
+      <p class="modal-card-title">New Comment</p>
+      <button class="delete close" aria-label="close"></button>
     </header>
-    <section class="modal-card-body">
-      <!-- Content ... -->
-    </section>
+    <div class="modal-card-body">
+      <div class="field">
+        <div class="control">
+          <input id="commentTitle" class="input is-info" type="text" placeholder="Title">
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <textarea id="commentBody" class="textarea is-info" placeholder="Comment"></textarea>
+        </div>
+      </div>
+    </div>
     <footer class="modal-card-foot">
-      <button class="button is-success">Save changes</button>
-      <button class="button">Cancel</button>
+      <button class="button is-success save-btn">Save Comment</button>
+      <button class="button close">Cancel</button>
+
     </footer>
   </div>
-</div> --}}
-<p>comments go here</p>
+</div>
+</div>
+{{!-- "success" modal- triggers after submitting comment --}}
+<div id="successModal" class="modal">
+  <div class="modal-background"> </div>
+  <div class="modal-card">
+    <div class="modal-card-head has-text-success has-text-centered">
+      Comment Added
+    </div>
+    <footer class="modal-card-foot">
+      <button class="button close">close</button>
+    </footer>
+  </div>
+</div>
+{{!-- "comment section" --}}
+<div id="allCommentsModal" class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Comments</p>
+      <button class="delete close" aria-label="close"></button>
+    </header>
+    <div id="commentsBody" class="modal-card-body">
+      {{!-- comments go here --}}
+    </div>
+    <footer class="modal-card-foot">
+      <button class="button close">Cancel</button>
+    </footer>
+  </div>
+</div>

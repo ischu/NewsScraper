@@ -81,8 +81,8 @@ router.get("/scrape", function(req, res) {
   router.get("/articles/:id", function(req, res) {
     // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
     db.Article.findOne({ _id: req.params.id })
-      // ..and populate all of the notes associated with it
-      .populate("note")
+      // ..and populate all of the commments associated with it
+      .populate("comment")
       .then(function(dbArticle) {
         // If we were able to successfully find an Article with the given id, send it back to the client
         res.json(dbArticle);
@@ -99,7 +99,7 @@ router.get("/scrape", function(req, res) {
     db.Comment.create(req.body)
       .then(function(dbComment) {
         // finds Article by id, updates the comment by id
-        return db.Article.findOneAndUpdate({ _id: req.params.id }, { note: dbComment._id }, { new: true });
+        return db.Article.findOneAndUpdate({ _id: req.params.id }, {$push:{ comment: dbComment._id }}, { new: true });
       })
       .then(function(dbArticle) {
         // If we were able to successfully update an Article, send it back to the client
