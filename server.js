@@ -4,8 +4,9 @@ const mongoose = require("mongoose");
 const fs = require("fs");
 
 // Server & Port
-// const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoNews";
-const PORT = 3000;
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoNews";
+const PORT = process.env.POR || 3000;
+mongoose.connect(MONGODB_URI);
 
 // Initialize Express
 const app = express();
